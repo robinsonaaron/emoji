@@ -1,7 +1,22 @@
-let emoji = require('node-emoji');
+const emoji = require('node-emoji');
 
-let stdin = process.openStdin();
+let emojis = [
+  'coffee',
+  'smiley',
+  'pizza',
+  'skull',
+  'dog',
+  'cat',
+  'rose',
+  'sunflower',
+  'bird',
+  'smirk_cat'
+]
 
-stdin.addListener("data", (d) => {
-  console.log(emoji.emojify(d.toString().trim()));
-});
+function logEmojis(emojiStrings) {
+  emojiStrings.forEach(element => {
+    console.log(emoji.get(element));
+  });
+}
+
+logEmojis(emojis);
